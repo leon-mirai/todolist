@@ -8,8 +8,11 @@ If user.json file exists load it into state, else create an empty map
 
 */
 import { existsSync, writeFile, readFile } from "node:fs";
-import { User } from "./types.ts";
-
+// existsSyncs checks if file exists
+// writeFile writes data to a file
+// readFile reads data from file
+import { User } from "./types.ts"; // for a file to be imported, it must first be exported to be accessed.
+// this imports the interface typing fro, types.ts
 export class UserDB {
   // constructor(filename: string) {
   //   if (existsSync('/')) {
@@ -18,8 +21,12 @@ export class UserDB {
   //     console.log('No path');
   //   }
   _db;
+  // _db is a private property
   constructor(filename: string) {
-    this._db = new Map<string, User>();
+    this._db = new Map<string, User>(); // initialise _db to create an empty map that stores User
+    // this refers to current instance to access properties/methods that belong to the instance
+    // new Map<string, User> creates a new Map that stores key-value pairs. The keys are type string and the values are type 'User' with
+    // objects with 'email' and 'password' properties
     if (existsSync(filename)) {
       console.log("The path exists");
 
